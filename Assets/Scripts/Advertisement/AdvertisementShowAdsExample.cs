@@ -130,10 +130,13 @@ public class AdvertisementShowAdsExample : MonoBehaviour, IUnityAdsListener
         switch (showResult)
         {
             case ShowResult.Finished:
+                // 動画広告を視聴完了したとき
                 break;
             case ShowResult.Skipped:
+                // 動画広告をスキップして視聴完了したとき
                 break;
             case ShowResult.Failed:
+                // 動画広告の視聴が失敗して終了したとき
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(showResult), showResult, null);
