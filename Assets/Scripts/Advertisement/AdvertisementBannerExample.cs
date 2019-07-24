@@ -24,7 +24,7 @@ public class AdvertisementBannerExample : MonoBehaviour
 
     private void Start()
     {
-	    // 初期化
+        // 初期化
         InitUnityAds();
         
         // バナーをロードして表示
@@ -47,7 +47,7 @@ public class AdvertisementBannerExample : MonoBehaviour
 #elif UNITY_IOS
         _gameId = appStoreGameId;
 #endif
-	    
+        
         Advertisement.Initialize(_gameId, testMode);
         
         // バナーを表示するポジションを設定する
@@ -56,13 +56,13 @@ public class AdvertisementBannerExample : MonoBehaviour
         // コールバックを設定する
         _bannerLoadOptions = new BannerLoadOptions()
         {
-	        loadCallback = LoadCallback,
-	        errorCallback = ErrorCallback
+            loadCallback = LoadCallback,
+            errorCallback = ErrorCallback
         };
         _bannerOptions = new BannerOptions()
         {
-	        showCallback = ShowCallback,
-	        hideCallback = HideCallback
+            showCallback = ShowCallback,
+            hideCallback = HideCallback
         };
     }
 
@@ -71,7 +71,7 @@ public class AdvertisementBannerExample : MonoBehaviour
      */
     public void LoadBanner()
     {
-	    Advertisement.Banner.Load(placementId);
+        Advertisement.Banner.Load(placementId);
     }
 
     /**
@@ -80,7 +80,7 @@ public class AdvertisementBannerExample : MonoBehaviour
      */
     public void LoadAndShowBanner()
     {
-	    Advertisement.Banner.Load(placementId, _bannerLoadOptions);
+        Advertisement.Banner.Load(placementId, _bannerLoadOptions);
     }
 
     /**
@@ -88,8 +88,8 @@ public class AdvertisementBannerExample : MonoBehaviour
      */
     public void LoadAndShowBanner(BannerPosition bannerPosition)
     {
-	    Advertisement.Banner.SetPosition(bannerPosition);
-	    Advertisement.Banner.Load(placementId, _bannerLoadOptions);
+        Advertisement.Banner.SetPosition(bannerPosition);
+        Advertisement.Banner.Load(placementId, _bannerLoadOptions);
     }
 
     /**
@@ -97,8 +97,8 @@ public class AdvertisementBannerExample : MonoBehaviour
      */
     private void LoadCallback()
     {
-	    // バナー広告を表示する（コールバック有り）
-	    Advertisement.Banner.Show(placementId, _bannerOptions);
+        // バナー広告を表示する（コールバック有り）
+        Advertisement.Banner.Show(placementId, _bannerOptions);
     }
     
     /**
@@ -106,15 +106,15 @@ public class AdvertisementBannerExample : MonoBehaviour
      */
     private void ErrorCallback(string message)
     {
-	    Debug.Log($"Unity Ads Banner Load Error {nameof(message)}: {message}");
+        Debug.Log($"Unity Ads Banner Load Error {nameof(message)}: {message}");
     }
     
     /**
-	 * バナー広告を表示した際に呼ばれるコールバック
+     * バナー広告を表示した際に呼ばれるコールバック
      */
     private void ShowCallback()
     {
-	    Debug.Log("Show Banner");
+        Debug.Log("Show Banner");
     }
 
     /**
@@ -122,6 +122,6 @@ public class AdvertisementBannerExample : MonoBehaviour
      */
     private void HideCallback()
     {
-	    Debug.Log("Hide Banner");
+        Debug.Log("Hide Banner");
     }
 }
