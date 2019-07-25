@@ -47,12 +47,16 @@ public class MonetizationShowAdsExample : MonoBehaviour
         // 初期化
         Monetization.Initialize(_gameId, testMode);
         
-        // コールバックを設定
+        // 広告視聴のコールバックを設定
         _callbacks = new ShowAdCallbacks()
         {
             startCallback = OnAdStart,
             finishCallback = OnAdFinished
         };
+        
+        // PlacementContentのコールバックを設定
+        Monetization.onPlacementContentReady += OnPlacementContentReady;
+        Monetization.onPlacementContentStateChange += OnPlacementContentStateChange;
     }
 
     /**
@@ -121,7 +125,6 @@ public class MonetizationShowAdsExample : MonoBehaviour
      */
     private void OnAdFinished(ShowResult result)
     {
-        Debug.Log($"Ad Finished {nameof(result)}: {Enum.GetName(typeof(ShowResult), result)}");
         switch (result)
         {
             case ShowResult.Finished:
@@ -140,6 +143,28 @@ public class MonetizationShowAdsExample : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(result), result, null);
         }
     }
-    
+
+    /**
+     * PlacementContentがReady（準備完了）になった時に呼ばれるコールバック
+     */
+    private void OnPlacementContentReady(object sender, PlacementContentReadyEventArgs e)
+    {
+        Debug.Log($"PlacementContentReady {nameof(sender)}: {sender}," +
+                  $" {nameof(e.placementId)}: {e.placementId}," +
+                  $" {nameof(e.placementContent)}: {e.placementContent}");
+    }
+
+    /**
+     * PlacementContentStateが変化した時に呼ばれるコールバック
+     */
+    private void OnPlacementContentStateChange(object sender, PlacementContentStateChangeEventArgs e)
+    {
+        Debug.Log($"PlacementContentStateChange {nameof(sender)}: {sender}," +
+                  $" {nameof(e.placementId)}: {e.placementId}," +
+                  $" {nameof(e.placementContent)}: {e.placementContent}," +
+                  $" {nameof(e.previousState)}: {e.previousState}," +
+                  $" {nameof(e.newState)}: {e.newState}");
+    }
+
     #endregion
 }
