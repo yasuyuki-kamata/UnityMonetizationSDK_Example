@@ -76,7 +76,7 @@ public class AdvertisementBannerExample : MonoBehaviour
 
     /**
      * バナー広告をロードして表示する
-     * （ここではコールバックでロードが終わり次第バナーを表示するようにしてある）
+     * （ここではロードが終わり次第コールバックでバナーを表示するようにしてある）
      */
     public void LoadAndShowBanner()
     {
