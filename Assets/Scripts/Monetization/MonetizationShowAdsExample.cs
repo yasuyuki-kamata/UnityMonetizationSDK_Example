@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Advertisements;
 using UnityEngine.Monetization;
 using ShowResult = UnityEngine.Monetization.ShowResult;
 
