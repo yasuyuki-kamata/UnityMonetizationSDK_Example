@@ -108,10 +108,10 @@ public class MonetizationShowAdsExample : MonoBehaviour
         placementContent.Show(_callbacks);
     }
 
-    #region コールバック用の関数
+    #region イベント用の関数
 
     /**
-     * 広告視聴開始時に呼ばれるコールバック
+     * 広告視聴開始時に呼ばれる関数
      */
     private void OnAdStart()
     {
@@ -119,7 +119,7 @@ public class MonetizationShowAdsExample : MonoBehaviour
     }
 
     /**
-     * 広告視聴完了時に呼ばれるコールバック
+     * 広告視聴完了時に呼ばれる関数
      * @param ShowResult result 広告視聴完了時の結果ステータス
      */
     private void OnAdFinished(ShowResult result)
@@ -144,7 +144,7 @@ public class MonetizationShowAdsExample : MonoBehaviour
     }
 
     /**
-     * PlacementContentがReady（準備完了）になった時に呼ばれるコールバック
+     * PlacementContentがReady（準備完了）になった時に呼ばれる関数
      */
     private void OnPlacementContentReady(object sender, PlacementContentReadyEventArgs e)
     {
@@ -154,7 +154,7 @@ public class MonetizationShowAdsExample : MonoBehaviour
     }
 
     /**
-     * PlacementContentStateが変化した時に呼ばれるコールバック
+     * PlacementContentStateが変化した時に呼ばれる関数
      */
     private void OnPlacementContentStateChange(object sender, PlacementContentStateChangeEventArgs e)
     {
