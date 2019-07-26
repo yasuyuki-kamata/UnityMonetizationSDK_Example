@@ -21,12 +21,8 @@ public class AdvertisementShowAdsExample : MonoBehaviour, IUnityAdsListener
 
     private void Start()
     {
+        // 初期化
         InitUnityAds();
-    }
-
-    private void OnDisable()
-    {
-        Advertisement.RemoveListener(this);
     }
 
     /**
