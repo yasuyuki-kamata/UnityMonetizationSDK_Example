@@ -95,9 +95,9 @@ public class AdvertisementShowAdsExample : MonoBehaviour, IUnityAdsListener
     /**
      * 広告が準備完了した時点で呼ばれる
      */
-    public void OnUnityAdsReady(string placementId)
+    public void OnUnityAdsReady(string pid)
     {
-        Debug.Log($"UnityAdsReady {nameof(placementId)}: {placementId}");
+        Debug.Log($"UnityAdsReady {nameof(pid)}: {pid}");
     }
 
     /**
@@ -111,18 +111,19 @@ public class AdvertisementShowAdsExample : MonoBehaviour, IUnityAdsListener
     /**
      * 動画広告の視聴開始時点で呼ばれる
      */
-    public void OnUnityAdsDidStart(string placementId)
+    public void OnUnityAdsDidStart(string pid)
     {
-        Debug.Log($"UnityAdsDidStart {nameof(placementId)}: {placementId}");
+        Debug.Log($"UnityAdsDidStart {nameof(pid)}: {pid}");
     }
 
     /**
      * 動画広告の視聴完了時点で呼ばれる
      */
-    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+    public void OnUnityAdsDidFinish(string pid, ShowResult showResult)
     {
-        Debug.Log($"UnityAdsDidFinish {nameof(placementId)}: {placementId}," +
-                  $" {nameof(showResult)}: {Enum.GetName(typeof(ShowResult), showResult)}");
+        Debug.Log($"UnityAdsDidFinish {nameof(pid)}: {pid}," +
+                  $" {nameof(showResult)}:" +
+                  $" {Enum.GetName(typeof(ShowResult), showResult)}");
         switch (showResult)
         {
             case ShowResult.Finished:
@@ -134,8 +135,6 @@ public class AdvertisementShowAdsExample : MonoBehaviour, IUnityAdsListener
             case ShowResult.Failed:
                 // 動画広告の視聴が失敗して終了したとき
                 break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(showResult), showResult, null);
         }
     }
     
