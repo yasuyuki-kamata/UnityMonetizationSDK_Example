@@ -48,6 +48,7 @@ public class AdvertisementBannerExample : MonoBehaviour
         _gameId = appStoreGameId;
 #endif
         
+	    // 初期化
         Advertisement.Initialize(_gameId, testMode);
         
         // バナーを表示するポジションを設定する

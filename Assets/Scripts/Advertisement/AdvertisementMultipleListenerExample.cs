@@ -29,12 +29,7 @@ public class AdvertisementMultipleListenerExample : MonoBehaviour
 
     private void Start()
     {
-#if UNITY_ANDROID
-        _gameId = googlePlayGameId;
-#elif UNITY_IOS
-        _gameId = appStoreGameId;
-#endif
-        
+        // 初期化
         InitUnityAds();
     }
 
@@ -48,6 +43,12 @@ public class AdvertisementMultipleListenerExample : MonoBehaviour
         
         // すでに初期化していたらreturn
         if (Advertisement.isInitialized) return;
+
+#if UNITY_ANDROID
+        _gameId = googlePlayGameId;
+#elif UNITY_IOS
+        _gameId = appStoreGameId;
+#endif
 
         // 初期化
         Advertisement.Initialize(_gameId, testMode);

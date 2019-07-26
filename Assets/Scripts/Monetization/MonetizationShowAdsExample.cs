@@ -22,12 +22,6 @@ public class MonetizationShowAdsExample : MonoBehaviour
 
     private void Start()
     {
-#if UNITY_ANDROID
-        _gameId = googlePlayGameId;
-#elif UNITY_IOS
-        _gameId = appStoreGameId;
-#endif
-        
         // 初期化
         InitUnityAds();
     }
@@ -42,6 +36,12 @@ public class MonetizationShowAdsExample : MonoBehaviour
         
         // すでに初期化していたらreturn
         if (Monetization.isInitialized) return;
+
+#if UNITY_ANDROID
+        _gameId = googlePlayGameId;
+#elif UNITY_IOS
+        _gameId = appStoreGameId;
+#endif
 
         // 初期化
         Monetization.Initialize(_gameId, testMode);
