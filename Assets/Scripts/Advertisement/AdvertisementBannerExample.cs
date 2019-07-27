@@ -81,7 +81,12 @@ public class AdvertisementBannerExample : MonoBehaviour
      */
     public void LoadAndShowBanner()
     {
-        Advertisement.Banner.Load(placementId, _bannerLoadOptions);
+	    Advertisement.Banner.Load(placementId, _bannerLoadOptions);
+//        Advertisement.Banner.Load("banner", new BannerLoadOptions()
+//        {
+//	        loadCallback = () => { },
+//	        errorCallback = (message) => { }
+//        });
     }
 
     /**
