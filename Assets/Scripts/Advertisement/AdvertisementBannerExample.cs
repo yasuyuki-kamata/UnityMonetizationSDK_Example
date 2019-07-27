@@ -105,6 +105,11 @@ public class AdvertisementBannerExample : MonoBehaviour
     {
         // バナー広告を表示する（コールバック有り）
         Advertisement.Banner.Show(placementId, _bannerOptions);
+//        Advertisement.Banner.Show("banner", new BannerOptions()
+//        {
+//	        showCallback = () => { },
+//	        hideCallback = () => { }
+//        });
     }
     
     /**
