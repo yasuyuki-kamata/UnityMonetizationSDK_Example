@@ -59,7 +59,7 @@ public class MonetizationShowAdsExample : MonoBehaviour
     }
 
     /**
-     * Monetizationクラスを使って動画広告を表示する
+     * Monetizationクラスを使って広告を表示する
      */
     public void ShowAds()
     {
@@ -98,13 +98,13 @@ public class MonetizationShowAdsExample : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
         
-        // 動画広告を表示（コールバックなし）
+        // 広告を表示（コールバックなし）
         //placementContent.Show();
         
-        // 動画視聴完了後のコールバックを指定して広告を表示
+        // 広告視聴完了後のコールバックを指定して広告を表示
         //placementContent.Show(OnAdFinished);
         
-        // 動画広告視聴時、完了後のコールバックを指定して広告を表示
+        // 広告視聴時、完了後のコールバックを指定して広告を表示
         placementContent.Show(_callbacks);
     }
 
@@ -127,15 +127,15 @@ public class MonetizationShowAdsExample : MonoBehaviour
         switch (result)
         {
             case ShowResult.Finished:
-                // 動画視聴を完了したとき
+                // 広告視聴を完了したとき
                 Debug.Log("Ad Finished");
                 break;
             case ShowResult.Skipped:
-                // 動画視聴をスキップして完了したとき
+                // 広告視聴をスキップして完了したとき
                 Debug.Log("Ad Skipped");
                 break;
             case ShowResult.Failed:
-                // 動画視聴が失敗したとき
+                // 広告視聴が失敗したとき
                 Debug.Log("Ad Failed");
                 break;
             default:
