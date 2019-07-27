@@ -51,9 +51,11 @@ public class MonetizationShowAdsExample : MonoBehaviour
         {
             startCallback = OnAdStart,
             finishCallback = OnAdFinished
+//            startCallback = () => { },
+//            finishCallback = result => { }
         };
         
-        // PlacementContentのコールバックを設定
+        // PlacementContent状態変化時のイベントハンドラを追加
         Monetization.onPlacementContentReady += OnPlacementContentReady;
         Monetization.onPlacementContentStateChange += OnPlacementContentStateChange;
     }
@@ -104,6 +106,27 @@ public class MonetizationShowAdsExample : MonoBehaviour
         // 広告視聴完了後のコールバックを指定して広告を表示
         //placementContent.Show(OnAdFinished);
         
+        // ラムダ式でfinishCallbackを設定
+//        placementContent.Show((state =>
+//        {
+//            // stateには視聴完了時の結果が入っている
+//            switch (state)
+//            {
+//                case ShowResult.Finished:
+//                    // 広告視聴を完了したとき
+//                    Debug.Log("Ad Finished");
+//                    break;
+//                case ShowResult.Skipped:
+//                    // 広告視聴をスキップして完了したとき
+//                    Debug.Log("Ad Skipped");
+//                    break;
+//                case ShowResult.Failed:
+//                    // 広告視聴が失敗したとき
+//                    Debug.Log("Ad Failed");
+//                    break;
+//            }
+//        }));
+
         // 広告視聴時、完了後のコールバックを指定して広告を表示
         placementContent.Show(_callbacks);
     }
